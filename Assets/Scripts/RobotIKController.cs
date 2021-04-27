@@ -8,11 +8,10 @@ public class RobotIKController : MonoBehaviour
     [SerializeField] private RobotJoint _endJoint;
     [SerializeField] private Transform _targetPoint;
     [SerializeField] private EndJointRay _gripperRay;
-    [SerializeField] private float _threshold = 0.05f;
     [SerializeField] private float rate = 8f;
     [SerializeField] private int _steps = 15;
     private RobotJoint current;
-
+    [SerializeField] private float _threshholdRotate = .35f, _threshholdDistance = .15f;
     private float CalculateSlope(RobotJoint joint)
     {
         float deltaTheta = 0.01f;
@@ -28,7 +27,8 @@ public class RobotIKController : MonoBehaviour
     }
     public void MoveRobot()
     {
-        if (Vector3.Distance(_endJoint.transform.position, _targetPoint.transform.position) > _threshold)
+        var distance = Vector3.Distance(_endJoint.transform.position, _targetPoint.transform.position);
+        if (distance > _threshholdDistance && distance <= _threshholdRotate)
         {
             for (int i = 0; i < _steps; ++i)
             {
@@ -38,9 +38,10 @@ public class RobotIKController : MonoBehaviour
                     var slope = CalculateSlope(current);
                     current.Rotate(slope * rate);
                     current = current.GetChildJoint();
-                    
                 }
             }
         }
+        else if(distance > _threshholdRotate)
+            _rootJoint.Rotate(4f);
     }
 }

@@ -5,22 +5,37 @@ using UnityEngine.UI;
 
 public class RobotController : MonoBehaviour
 {
-    [SerializeField] private Slider _xSlider, _ySlider;
+    //private int _hp;
+    [SerializeField] private Slider _rotationSlider, _distanceSlider, _gripperRotationSlider;
     [SerializeField] private float distanceY = 200f, rotationX = 200f;
     [SerializeField] private GameObject controlPoint, mainControlPoint;
-    private float startY;
+    [SerializeField] private Transform _gripperArm;
+    [SerializeField] private float _lowerPosition = 0.1f;
     [SerializeField] private RobotIKController robot;
+    private float _startElevation, _currentElevation;
+    private Transform _dragDetail;
 
     private void Start()
     {
-        startY = controlPoint.transform.localPosition.y;
-        controlPoint.transform.localPosition = new Vector3(0, startY, 4.25f);
+        _currentElevation = _startElevation = controlPoint.transform.localPosition.z;
+        controlPoint.transform.localPosition = new Vector3(0, _startElevation, 4.25f);
     }
     private void Update()
     {
-        rotationX = Mathf.Clamp(_xSlider.value*360,_xSlider.value * 45f,_xSlider.value * 315f);
-        distanceY = Mathf.Clamp(_ySlider.value/70f, 2.4f, 4.25f);
-        mainControlPoint.transform.localEulerAngles = new Vector3(0,rotationX,0);
-        controlPoint.transform.localPosition = new Vector3(0,startY, distanceY);
+        rotationX = Mathf.Clamp(_rotationSlider.value*360,45f,315f);
+        distanceY = Mathf.Clamp(-_distanceSlider.value/10000, -.035f, - .01f);
+        mainControlPoint.transform.localEulerAngles = new Vector3(0,0, rotationX);
+        controlPoint.transform.localPosition = new Vector3(0,distanceY, _currentElevation);
+        _gripperArm.localEulerAngles = new Vector3(0, _gripperRotationSlider.value, 0);
+    }
+    public void SetGripperElevation(bool up)
+    {
+        var pos = controlPoint.transform.localPosition;
+        if (up)
+            pos.z = _lowerPosition;
+        else
+            pos.z = _startElevation;
+        _currentElevation = pos.z;
+        controlPoint.transform.position = pos;
     }
 }
