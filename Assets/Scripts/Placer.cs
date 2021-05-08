@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Placer : MonoBehaviour
 {
-    [SerializeField] private GameObject _objectToMove, _objectToSpawn;
+    public static Placer instance;
+    [SerializeField] private GameObject /*_objectToMove,*/ _objectToSpawn;
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private float _yValue = 0.44f;
     private bool _collideWithOther;
     private Vector3 oldPos;
     private GameObject _currentMoveObject;
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            SpawnObject();
         if (_currentMoveObject != null)
         {
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -34,8 +37,9 @@ public class Placer : MonoBehaviour
             }
         }
     }
-    public void SpawnObject()
+    public void SetObjectToSpawn(GameObject objectToMove, GameObject objectToSpawn)
     {
-        _currentMoveObject = Instantiate(_objectToMove, Vector3.zero, _objectToMove.transform.rotation);
+        _currentMoveObject = Instantiate(objectToMove, Vector3.zero, objectToMove.transform.rotation);
+        _objectToSpawn = objectToSpawn;
     }
 }

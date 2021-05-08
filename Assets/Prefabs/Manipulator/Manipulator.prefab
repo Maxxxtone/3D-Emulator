@@ -588,10 +588,10 @@ MonoBehaviour:
   _endJoint: {fileID: 5228812254355675214}
   _targetPoint: {fileID: 5228812255247075895}
   _gripperRay: {fileID: 5228812254355675215}
-  rate: 8
+  rate: 9
   _steps: 5
   _threshholdRotate: 1
-  _threshholdDistance: 0.15
+  _threshholdDistance: 0.17
 --- !u!95 &4922734401544782850
 Animator:
   serializedVersion: 3
@@ -627,6 +627,8 @@ MonoBehaviour:
   _groundMask:
     serializedVersion: 2
     m_Bits: 64
+  _type: 0
+  _rotationVector: {x: 0, y: 0, z: 1}
 --- !u!65 &4922734401544782848
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -638,8 +640,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.038039874, y: 0.04523845, z: 0.0322093}
-  m_Center: {x: -0.0020717238, y: -0.0021173905, z: 0.011697834}
+  m_Size: {x: 0.034942746, y: 0.023236742, z: 0.0322093}
+  m_Center: {x: -0.00052316487, y: -0.000019726753, z: 0.011697834}
 --- !u!54 &4922734401544782855
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -841,6 +843,7 @@ MonoBehaviour:
   m_joint: {fileID: 5228812253859271560}
   m_targetPoint: {fileID: 5228812255247075895}
   _animator: {fileID: 4922734401544782850}
+  _rotationPoint: {fileID: 5228812255514621307}
 --- !u!114 &5228812254355675214
 MonoBehaviour:
   m_ObjectHideFlags: 0

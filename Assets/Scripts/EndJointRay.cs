@@ -12,23 +12,21 @@ public class EndJointRay : MonoBehaviour
     private bool _hasItem;
     private Transform _draggableItem;
     [SerializeField] private Animator _animator;
+    [SerializeField] private Transform _rotationPoint;
+    private Vector3 _detailInitialRotation;
 
     private void Update()
     {
         RaycastHit hit;
         Ray ray = new Ray(transform.position, transform.up * hitRayLength);
         Physics.Raycast(ray, out hit, m_floorLayer);
-        if(hit.collider != null)
+        if (hit.collider != null)
         {
             var angle = GetGripperAngle(transform.up * hitRayLength, hit.transform.right);
-            if (angle >= 91f)
-            {
-                m_joint.Rotate(-2f * m_targetPoint.position.normalized.x);
-            }
-            else if (angle <= 89)
-            {
-                m_joint.Rotate(2f * m_targetPoint.position.normalized.x);
-            }
+            if (_rotationPoint.position.x < m_targetPoint.position.x)
+                RotateToPerpendicular(angle, -2f);
+            else if (_rotationPoint.position.x > m_targetPoint.position.x)
+                RotateToPerpendicular(angle, 2f);
         }
         if (_hasItem)
         {
@@ -42,7 +40,13 @@ public class EndJointRay : MonoBehaviour
         Gizmos.DrawRay(transform.position, transform.up * 10);
         Gizmos.DrawSphere(transform.position, _grabSphereRadius);
     }
-
+    private void RotateToPerpendicular(float currentAngle, float value)
+    {
+        if (currentAngle >= 91f)
+            m_joint.Rotate(value);
+        else if (currentAngle <= 89)
+            m_joint.Rotate(-value);
+    }
     private float GetGripperAngle(Vector3 grippedDirectionVector, Vector3 floor)
     {
         return Vector3.Angle(grippedDirectionVector, floor);
@@ -59,7 +63,9 @@ public class EndJointRay : MonoBehaviour
                 {
                     _hasItem = true;
                     _draggableItem = draggableItems[0].transform;
+                    _detailInitialRotation = _draggableItem.eulerAngles;
                     _draggableItem.GetComponent<Rigidbody>().isKinematic = true;
+                    _draggableItem.GetComponent<RaycastTarget>().enabled = false;
                 }
             }
         }

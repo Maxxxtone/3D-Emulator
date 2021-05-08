@@ -15,6 +15,6 @@ public class RobotJoint : MonoBehaviour
     {
         if (_hasConstraints)
             angle = Mathf.Clamp(angle, m_minAngle, m_maxAngle);
-        transform.Rotate(m_rotationDirection * angle);
+        transform.Rotate(m_rotationDirection * angle,Space.Self);
     }
 }
