@@ -2135,14 +2135,14 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 0.764151, g: 0.764151, b: 0.764151, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 1
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -3826,6 +3826,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039481202}
   m_CullTransparentMesh: 1
+--- !u!1 &1113307277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1113307279}
+  - component: {fileID: 1113307278}
+  m_Layer: 0
+  m_Name: SaveSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1113307278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113307277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9215649d0ab5e1347a9a33dafc3d39c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  things: []
+  _manipulatorPrefab: {fileID: 4922734401544782851, guid: 74c5bd7f5a543024384f3e3413bf0a6d, type: 3}
+  _trafficLightsPrefab: {fileID: 5144100672961761890, guid: 6e802c60f48f67e47b41fc4beea0ef9c, type: 3}
+  _remoteTerminalPrefab: {fileID: 948128465890613724, guid: 85e516a673ed6114986ada2e838c6b66, type: 3}
+  _detailPrefab: {fileID: 6134987044571648646, guid: 6667a4e692ac44543bd5e6029436c5b0, type: 3}
+--- !u!4 &1113307279
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113307277}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1118751131
 GameObject:
   m_ObjectHideFlags: 0
@@ -6456,6 +6504,10 @@ PrefabInstance:
     - target: {fileID: 4922734401544782851, guid: 74c5bd7f5a543024384f3e3413bf0a6d, type: 3}
       propertyPath: m_Name
       value: Manipulator (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922734401544782851, guid: 74c5bd7f5a543024384f3e3413bf0a6d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5700079898494525113, guid: 74c5bd7f5a543024384f3e3413bf0a6d, type: 3}
       propertyPath: m_RootOrder

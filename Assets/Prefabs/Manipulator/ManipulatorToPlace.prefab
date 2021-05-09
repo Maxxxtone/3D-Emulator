@@ -330,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2165883343806524179
 Transform:
   m_ObjectHideFlags: 0
@@ -702,7 +702,7 @@ GameObject:
   m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1127147227599099031
 Transform:
   m_ObjectHideFlags: 0
@@ -740,6 +740,7 @@ MonoBehaviour:
   m_joint: {fileID: 5683143553751841304}
   m_targetPoint: {fileID: 536368347886333605}
   _animator: {fileID: 8352898870211058609}
+  _rotationPoint: {fileID: 0}
 --- !u!114 &79897924191854309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -966,7 +967,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6376290530996718209}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca3bf5699f41144469c555a73268930d, type: 3}
   m_Name: 
@@ -1037,6 +1038,8 @@ MonoBehaviour:
   _groundMask:
     serializedVersion: 2
     m_Bits: 64
+  _type: 0
+  _rotationVector: {x: 0, y: 0, z: 1}
 --- !u!65 &2295427684604121992
 BoxCollider:
   m_ObjectHideFlags: 0

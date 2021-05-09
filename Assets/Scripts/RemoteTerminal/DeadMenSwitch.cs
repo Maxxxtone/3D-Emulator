@@ -28,6 +28,5 @@ public class DeadMenSwitch : MonoBehaviour
     {
         _dmsState = Mathf.Abs(_dmsState - 1);
         _animator.SetInteger("state",_dmsState);
-        print(_dmsState);
     }
 }

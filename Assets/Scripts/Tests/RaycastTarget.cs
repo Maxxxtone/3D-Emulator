@@ -12,6 +12,9 @@ public class RaycastTarget : MonoBehaviour
     private bool _collideWithOther;
     private Vector3 oldPos;
     private float _timer;
+
+    public ThingType Type { get => _type; set => _type = value; }
+
     private void Start()
     {
         oldPos = transform.position;

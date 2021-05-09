@@ -39,6 +39,9 @@ public class ThingSwitcher : MonoBehaviour
     public void DeleteActiveThing()
     {
         if (_currentThing != null)
+        {
+            SaveSystem.instance.things.Remove(_currentThing.GetComponent<RaycastTarget>());
             Destroy(_currentThing);
+        }
     }
 }

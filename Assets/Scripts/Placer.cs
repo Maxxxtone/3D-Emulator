@@ -5,7 +5,7 @@ using UnityEngine;
 public class Placer : MonoBehaviour
 {
     public static Placer instance;
-    [SerializeField] private GameObject /*_objectToMove,*/ _objectToSpawn;
+    [SerializeField] private GameObject _objectToSpawn;
     [SerializeField] private LayerMask _groundMask;
     [SerializeField] private float _yValue = 0.44f;
     private bool _collideWithOther;
@@ -32,7 +32,9 @@ public class Placer : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 var thing = Instantiate(_objectToSpawn, oldPos, _objectToSpawn.transform.rotation);
-                thing.GetComponent<RaycastTarget>().enabled = true;
+                var rayTarget = thing.GetComponent<RaycastTarget>();
+                rayTarget.enabled = true;
+                SaveSystem.instance.things.Add(rayTarget);
                 Destroy(_currentMoveObject);
             }
         }
