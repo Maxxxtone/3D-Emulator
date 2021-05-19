@@ -23,7 +23,7 @@ public class ScenesPanel : MonoBehaviour
     {
         Save();
     }
-    private void Save()
+    public void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream fs = new FileStream(_filePath, FileMode.Create);

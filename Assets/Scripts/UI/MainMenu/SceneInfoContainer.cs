@@ -15,7 +15,7 @@ public class SceneInfoContainer : MonoBehaviour
     }
     public void SelectScene()
     {
-        print(sceneName);
+        ScenesPanel.instance.Save();
         PlayerPrefs.SetString("SceneName", sceneName);
         SceneManager.LoadScene(1);
     }
