@@ -12,10 +12,11 @@ public class Lamp : MonoBehaviour
         _renderer = GetComponent<Renderer>();
         SetLampState(false);
     }
-    public void SetLampState(bool isOn)
+    public void SetLampState(bool lightOn)
     {
+        isOn = lightOn;
         _renderer.material = _defaultMaterial;
-        if (isOn)
+        if (lightOn)
             _renderer.material = _lightMaterial;
     }
 }

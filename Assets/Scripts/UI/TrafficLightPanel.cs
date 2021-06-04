@@ -14,7 +14,11 @@ public class TrafficLightPanel : MonoBehaviour
     public void ChangeTrafficLight(TrafficLightController controller)
     {
         for (int i = 0; i < _lampsCheckbox.Length; i++)
+        {
             _lampsCheckbox[i].onValueChanged.RemoveAllListeners();
+            print(controller._lamps[i].isOn);
+            _lampsCheckbox[i].isOn = controller._lamps[i].isOn;
+        }
         //хуй знает че через цикл не работает
         _lampsCheckbox[0].onValueChanged.AddListener(delegate
         {

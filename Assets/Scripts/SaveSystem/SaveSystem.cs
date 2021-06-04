@@ -42,10 +42,7 @@ public class SaveSystem : MonoBehaviour
         Save save = (Save)bf.Deserialize(fs);
         fs.Close();
         foreach(var data in save.thingsData)
-        {
             things.Add(SpawnObjectByType(data));
-        }
-        print("load");
     }
     private RaycastTarget SpawnObjectByType(Save.ThingSaveData data)
     {

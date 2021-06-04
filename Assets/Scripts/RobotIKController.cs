@@ -41,7 +41,7 @@ public class RobotIKController : MonoBehaviour
                 }
             }
         }
-        else if(distance > _threshholdRotate)
+        else if (distance > _threshholdRotate)
             _rootJoint.Rotate(4f);
     }
 }
