@@ -31,8 +31,8 @@ public class ThingSwitcher : MonoBehaviour
                 TrafficLightPanel.instance.ChangeTrafficLight(thing.GetComponent<TrafficLightController>());
                 break;
             case ThingType.RemoteTerminal:
-                ControlPanelSwitcher.instance.ShowTrafficLightPanel();
-                TrafficLightPanel.instance.ChangeTrafficLight(thing.GetComponent<TrafficLightController>());
+                ControlPanelSwitcher.instance.ShowRemoteTerminalPanel();
+                RemoteTerminalPanel.instance.ChangeTrafficLight(thing.GetComponent<RemoteTerminal>());
                 break;
         }
     }

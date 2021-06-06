@@ -62,6 +62,7 @@ public class SaveSystem : MonoBehaviour
                 thing = InstantiatePrefab(_detailPrefab, data);
                 break;
         }
+        thing.name = data.Name;
         return thing;
     }
     private RaycastTarget InstantiatePrefab(GameObject prefab, Save.ThingSaveData data)
@@ -89,11 +90,13 @@ public class Save
     [System.Serializable]
     public struct ThingSaveData
     {
+        public string Name;
         public ThingType Type;
         public Vec3 Position, Rotaion;
 
-        public ThingSaveData(Vec3 position, Vec3 rotaion, ThingType type)
+        public ThingSaveData(Vec3 position, Vec3 rotaion, ThingType type, string tingName)
         {
+            Name = tingName;
             Type = type;
             Position = position;
             Rotaion = rotaion;
@@ -107,7 +110,8 @@ public class Save
             var type = t.Type;
             Vec3 pos = new Vec3(t.transform.position.x, t.transform.position.y, t.transform.position.z);
             Vec3 rot = new Vec3(t.transform.eulerAngles.x, t.transform.eulerAngles.y, t.transform.eulerAngles.z);
-            thingsData.Add(new ThingSaveData(pos, rot, type));
+            string name = t.name;
+            thingsData.Add(new ThingSaveData(pos, rot, type,name));
         }
     }
 }

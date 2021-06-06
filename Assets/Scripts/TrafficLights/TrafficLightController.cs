@@ -4,5 +4,6 @@ using UnityEngine;
 
 public class TrafficLightController : MonoBehaviour
 {
+    public string _name;
     public Lamp[] _lamps;
 }

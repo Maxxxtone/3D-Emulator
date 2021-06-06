@@ -476,6 +476,7 @@ GameObject:
   - component: {fileID: 4922734401544782849}
   - component: {fileID: 4922734401544782848}
   - component: {fileID: 4922734401544782855}
+  - component: {fileID: 4240541747815189432}
   m_Layer: 0
   m_Name: Manipulator
   m_TagString: Draggable
@@ -572,6 +573,7 @@ MonoBehaviour:
   _gripperArm: {fileID: 3714202872542645371}
   _lowerPosition: 0.0025
   _gripper: {fileID: 5228812254355675215}
+  _connection: {fileID: 0}
 --- !u!114 &5228812254918555979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,6 +660,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4240541747815189432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4922734401544782851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d2e31bbe5466b498f72e49d89400a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Robot
+  connectionState: 0
 --- !u!1 &4984353280360816587
 GameObject:
   m_ObjectHideFlags: 0
