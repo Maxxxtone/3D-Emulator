@@ -116,7 +116,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clicksText: {fileID: 6814262697928623045}
+  _buttonName: b1
   _displayedText: "\u041A\u043D\u043E\u043F\u043A\u0430\u21161: "
+  _terminal: {fileID: 8805480484590071397}
 --- !u!65 &219067676712005599
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -421,7 +423,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clicksText: {fileID: 6814262696623445912}
+  _buttonName: b3
   _displayedText: "\u041A\u043D\u043E\u043F\u043A\u0430\u21163: "
+  _terminal: {fileID: 8805480484590071397}
 --- !u!95 &1553633331831526402
 Animator:
   serializedVersion: 3
@@ -551,7 +555,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _clicksText: {fileID: 6814262697674715659}
+  _buttonName: b2
   _displayedText: "\u041A\u043D\u043E\u043F\u043A\u0430\u21162: "
+  _terminal: {fileID: 8805480484590071397}
 --- !u!95 &5013783255193247894
 Animator:
   serializedVersion: 3
@@ -780,6 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd46fb1cfa1927a44ac96e5bdfe83d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _terminal: {fileID: 8805480484590071397}
 --- !u!65 &6814262695901011537
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -5,11 +5,12 @@ using UnityEngine;
 public class TerminalButton : MonoBehaviour
 {
     [SerializeField] private TextMesh _clicksText;
+    [SerializeField] private string _buttonName = "b1";
     [SerializeField] private string _displayedText = " ÌÓÔÍ‡π1: ";
     private Animator _animator;
     private int _clicksCount;
     private bool _mouseOn;
-    private float _timer;
+    [SerializeField] private RemoteTerminal _terminal;
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -30,10 +31,9 @@ public class TerminalButton : MonoBehaviour
     }
     private void Click()
     {
-        _timer = 0.1f;
         _clicksCount++;
+        _terminal.SetButtonClicks(_buttonName, _clicksCount);
         _clicksText.text = _displayedText + _clicksCount;
         _animator.SetTrigger("click");
-        print(_clicksCount);
     }
 }

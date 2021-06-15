@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class TrafficLightPanel : MonoBehaviour
 {
     public static TrafficLightPanel instance;
     [SerializeField] private Toggle[] _lampsCheckbox;
+    [SerializeField] private Toggle _connectionToggle;
+    [SerializeField] private Button _changeNameBtn;
+    [SerializeField] private TMP_InputField _nameInput;
     private void Awake()
     {
         instance = this;
@@ -34,6 +38,14 @@ public class TrafficLightPanel : MonoBehaviour
         _lampsCheckbox[3].onValueChanged.AddListener(delegate
         {
             controller._lamps[3].SetLampState(_lampsCheckbox[3].isOn);
+        });
+        _connectionToggle.onValueChanged.AddListener(delegate
+        {
+            controller.connection.Connect(_connectionToggle.isOn);
+        });
+        _changeNameBtn.onClick.AddListener(delegate
+        {
+            controller.connection.SetName(_nameInput.text);
         });
     }
 }

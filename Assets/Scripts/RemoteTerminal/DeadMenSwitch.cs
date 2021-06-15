@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class DeadMenSwitch : MonoBehaviour
 {
+    [SerializeField] private RemoteTerminal _terminal;
     private int _dmsState;
     private Animator _animator;
     private bool _mouseOn;
+    
     private void Start()
     {
         _animator = GetComponent<Animator>();
@@ -27,6 +29,7 @@ public class DeadMenSwitch : MonoBehaviour
     private void Click()
     {
         _dmsState = Mathf.Abs(_dmsState - 1);
+        _terminal._dmsState = _dmsState;
         _animator.SetInteger("state",_dmsState);
     }
 }

@@ -1,28 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using WebSocketSharp;
-using SimpleJSON;
 
-public class TerminalConnection : ThingConnection
+public class TrafficLightConnection : ThingConnection
 {
-    private RemoteTerminal _controller;
-
+    private TrafficLightController _controller;
     protected override void Start()
     {
-        _controller = GetComponent<RemoteTerminal>();
+        _controller = GetComponent<TrafficLightController>();
         base.Start();
-    }
-    protected override JSONObject CreateInputsForController()
-    {
-        JSONObject inputs = new JSONObject();
-        for (int i = 1; i < 4; i++)
-        {
-            var key = "b" + i;
-            inputs.AddField(key, _controller.GetButtonClicks(key));
-        }
-        inputs.AddField("p", _controller._dmsState);
-        return inputs;
     }
     protected override void SetDataForController()
     {
