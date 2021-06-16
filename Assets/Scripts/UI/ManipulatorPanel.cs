@@ -11,6 +11,7 @@ public class ManipulatorPanel : MonoBehaviour
     [SerializeField] private Toggle _elevationToggle, _gripToggle, _connectionToggle;
     [SerializeField] private Button _changeNameBtn;
     [SerializeField] private TMP_InputField _nameInput;
+    [SerializeField] private TextMeshProUGUI[] _motorLabels, _loadLabels, _temperatureValues;
     private void Awake()
     {
         instance = this;
@@ -59,5 +60,13 @@ public class ManipulatorPanel : MonoBehaviour
         {
             controller._connection.SetName(_nameInput.text);
         });
+    }
+    public void UpdateMotorLabels(int[] motorValues) => UpdateMonitorLabels(motorValues, _motorLabels);
+    public void UpdateLoadLabels(int[] loadValues) => UpdateMonitorLabels(loadValues, _loadLabels);
+    public void UpdateTemoperatureLabels(int[] tempValues) => UpdateMonitorLabels(tempValues, _temperatureValues);
+    private void UpdateMonitorLabels(int[] values, TextMeshProUGUI[] labels)
+    {
+        for (int i = 0; i < values.Length; i++)
+            labels[i].text = values[i].ToString();
     }
 }
