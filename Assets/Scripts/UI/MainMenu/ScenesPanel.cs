@@ -19,10 +19,8 @@ public class ScenesPanel : MonoBehaviour
         _filePath = Application.persistentDataPath + "/scenes.data";
         Load();
     }
-    private void OnApplicationQuit()
-    {
-        Save();
-    }
+    private void OnApplicationQuit() => Save();
+    public void QuitApplication() => Application.Quit();
     public void Save()
     {
         BinaryFormatter bf = new BinaryFormatter();
